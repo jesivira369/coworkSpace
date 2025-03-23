@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "../components/ui/button"
-import Footer from "@/components/ui/footer"
+import Footer from "../components/ui/footer"
 import { ArrowRight, Calendar, Home, Users } from "lucide-react"
 
 export default function HomePage() {
