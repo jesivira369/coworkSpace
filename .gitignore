@@ -34,9 +34,27 @@ yarn-error.log
 testem.log
 /typings
 
+# Yarn
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+
 # System Files
 .DS_Store
 Thumbs.db
 
 .nx/cache
 .nx/workspace-data
+
+test-output
+
+# Next.js
+.next
+out
+
+# Env
+.env
+.env.local
