@@ -21,16 +21,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="min-h-screen">
-      <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
-        <body className={inter.className + " min-h-screen bg-background text-foreground"}>
+      <body className={inter.className + " min-h-screen bg-background text-foreground"}>
+        <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
           <QueryProvider>
-
             <Navbar />
             {children}
             <Toaster />
           </QueryProvider>
-        </body>
-      </ThemeProvider>
+        </ThemeProvider>
+      </body>
     </html >
   )
 }

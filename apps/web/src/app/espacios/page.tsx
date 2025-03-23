@@ -12,8 +12,8 @@ export default function EspaciosPage() {
     return (
         <div className="container mx-auto px-4 py-8">
             <div className="mb-8">
-                <h1 className="text-3xl font-bold mb-2">Espacios Disponibles</h1>
-                <p className="text-muted-foreground">
+                <h1 className="text-3xl font-bold mb-2 text-foreground">Espacios Disponibles</h1>
+                <p className="text-foreground">
                     Explora todos nuestros espacios de trabajo y salas de reuniones disponibles para reservar.
                 </p>
             </div>
