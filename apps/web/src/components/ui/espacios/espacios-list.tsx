@@ -8,6 +8,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../../ui/c
 import { useToast } from '../../use-toast'
 import { useEspacios } from '@/lib/hooks/useEspacios'
 import { useEffect } from 'react'
+import { UbicacionLabelMap } from "../../../lib/enum/ubicacion.enum"
 
 export default function EspaciosList() {
     const { data: espacios = [], isLoading, isError } = useEspacios()
@@ -47,7 +48,7 @@ export default function EspaciosList() {
                             <Users className="h-4 w-4 mr-2" />
                             <span>Capacidad: {espacio.capacidad} personas</span>
                         </div>
-                        <p className="text-sm mb-1">Ubicación: <span className="font-medium">{espacio.ubicacion}</span></p>
+                        <p className="text-sm mb-1">Ubicación: <span className="font-medium">{UbicacionLabelMap[espacio.ubicacion]}</span></p>
                         {espacio.descripcion && (
                             <p className="text-sm text-muted-foreground">{espacio.descripcion}</p>
                         )}

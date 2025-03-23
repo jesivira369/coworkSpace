@@ -25,22 +25,20 @@ export default function Navbar() {
     if (pathname === "/") return null
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="container flex h-16 items-center">
-                <div className="mr-4 flex">
-                    <Link href="/" className="flex items-center space-x-2">
-                        <span className="font-bold text-xl">CoworkSpace</span>
-                    </Link>
-                </div>
+        <header className="sticky top-0 z-50 w-full border-b bg-muted/90 backdrop-blur supports-[backdrop-filter]:bg-muted/80 shadow-sm py-6">
+            <div className="container flex h-6 items-center justify-between px-4 py-4">
+                <Link href="/" className="font-bold text-lg tracking-tight text-foreground">
+                    CoworkSpace
+                </Link>
 
-                <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 mx-6">
+                <nav className="hidden md:flex items-center gap-6">
                     {navItems.map((item) => (
                         <Link
                             key={item.href}
                             href={item.href}
                             className={cn(
                                 "flex items-center text-sm font-medium transition-colors hover:text-primary",
-                                pathname === item.href ? "text-primary" : "text-muted-foreground",
+                                pathname === item.href ? "text-primary" : "text-muted-foreground"
                             )}
                         >
                             {item.icon}
@@ -49,7 +47,7 @@ export default function Navbar() {
                     ))}
                 </nav>
 
-                <div className="flex flex-1 items-center justify-end space-x-4">
+                <div className="flex items-center gap-2">
                     <Button
                         variant="ghost"
                         size="icon"
@@ -60,14 +58,20 @@ export default function Navbar() {
                         <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                     </Button>
 
-                    <Button variant="ghost" size="icon" className="md:hidden" onClick={toggleMenu} aria-label="Toggle menu">
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="md:hidden"
+                        onClick={toggleMenu}
+                        aria-label="Toggle menu"
+                    >
                         {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                     </Button>
                 </div>
             </div>
 
             {isMenuOpen && (
-                <div className="md:hidden border-t">
+                <div className="md:hidden border-t bg-muted">
                     <div className="container py-4 space-y-2">
                         {navItems.map((item) => (
                             <Link
@@ -76,7 +80,7 @@ export default function Navbar() {
                                 onClick={closeMenu}
                                 className={cn(
                                     "flex items-center py-2 text-sm font-medium transition-colors hover:text-primary",
-                                    pathname === item.href ? "text-primary" : "text-muted-foreground",
+                                    pathname === item.href ? "text-primary" : "text-muted-foreground"
                                 )}
                             >
                                 {item.icon}

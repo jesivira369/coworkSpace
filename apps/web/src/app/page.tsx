@@ -8,10 +8,12 @@ import { ArrowRight, Calendar, Home, Users } from "lucide-react"
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="bg-primary text-primary-foreground py-6">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-bold">CoworkSpace</h1>
-          <p className="mt-2">Sistema de Gestión de Reservas para Espacios de Trabajo</p>
+      <header className="bg-muted text-foreground py-4 border-b">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl font-bold tracking-tight">CoworkSpace</h1>
+          <p className="mt-4 text-muted-foreground text-lg">
+            Sistema de Gestión de Reservas para Espacios de Trabajo
+          </p>
         </div>
       </header>
 
@@ -27,7 +29,7 @@ export default function HomePage() {
               <div className="mb-4 bg-primary/10 p-3 rounded-full w-fit">
                 <Home className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-medium mb-2">Espacios Disponibles</h3>
+              <h3 className="text-xl font-medium mb-2 ">Espacios Disponibles</h3>
               <p className="text-muted-foreground mb-4">
                 Explora todos nuestros espacios de trabajo y salas de reuniones disponibles.
               </p>
