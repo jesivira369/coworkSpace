@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -21,6 +21,7 @@ import {
 } from "../alert-dialog"
 import { useReservas } from "@/lib/hooks/useReservas"
 import { api } from "@/lib/api"
+import { UbicacionLabelMap } from "../../../lib/enum/ubicacion.enum"
 
 export default function ReservasList() {
     const [currentPage, setCurrentPage] = useState(1)
@@ -33,13 +34,6 @@ export default function ReservasList() {
         isError,
         refetch,
     } = useReservas({ page: currentPage, limit: 10 })
-
-    useEffect(() => {
-        console.log(data)
-
-
-    }, [data])
-
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page)
@@ -91,6 +85,9 @@ export default function ReservasList() {
                                     <div className="flex items-center gap-2 mb-1">
                                         <h3 className="font-medium">
                                             {reserva.espacio?.nombre || "Espacio"}
+                                        </h3>
+                                        <h3 className="font-medium">
+                                            {UbicacionLabelMap[reserva.espacio?.ubicacion] ?? reserva.espacio?.ubicacion}
                                         </h3>
                                         <Badge variant="default">Reservado</Badge>
                                     </div>

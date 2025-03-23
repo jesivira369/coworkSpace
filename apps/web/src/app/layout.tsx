@@ -20,16 +20,17 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es">
-      <body className={inter.className}>
-        <QueryProvider>
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+    <html lang="es" className="min-h-screen">
+      <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
+        <body className={inter.className + " min-h-screen bg-background text-foreground"}>
+          <QueryProvider>
+
             <Navbar />
             {children}
             <Toaster />
-          </ThemeProvider>
-        </QueryProvider>
-      </body>
-    </html>
+          </QueryProvider>
+        </body>
+      </ThemeProvider>
+    </html >
   )
 }
