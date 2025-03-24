@@ -3,7 +3,6 @@
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import {
     Select,
@@ -14,8 +13,8 @@ import {
 } from "../select"
 import { Input } from "../input"
 import { Label } from "../label"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "../button"
+import { Card, CardContent } from "../card"
 import { Calendar, Clock } from "lucide-react"
 import { useToast } from "../../use-toast"
 import { useEspaciosScroll } from "../../../lib/hooks/useEspaciosScroll"

@@ -2,9 +2,9 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Button } from "../button"
+import { Card, CardContent } from "../card"
+import { Badge } from "../badge"
 import { PaginationButton } from "../pagination"
 import { useToast } from "../../use-toast"
 import { Calendar, Clock, Pencil, Trash2 } from "lucide-react"
@@ -19,8 +19,8 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "../alert-dialog"
-import { useReservas } from "@/lib/hooks/useReservas"
-import { api } from "@/lib/api"
+import { useReservas } from "../../../lib/hooks/useReservas"
+import { api } from "../../../lib/api"
 import { UbicacionLabelMap } from "../../../lib/enum/ubicacion.enum"
 
 export default function ReservasList() {

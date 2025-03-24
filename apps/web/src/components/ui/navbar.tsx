@@ -2,11 +2,11 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
+import { Button } from "./button"
 import { Calendar, Home, Menu, Moon, Sun, Users, X } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useState } from "react"
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils"
 
 export default function Navbar() {
     const pathname = usePathname()

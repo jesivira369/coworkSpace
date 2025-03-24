@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { Button } from "../../../components/ui/button"
 import { Skeleton } from "../../../components/skeleton"
 import NuevaReservaForm from "../../../components/ui/reservas/nueva-reserva-form"
 import { ArrowLeft } from "lucide-react"

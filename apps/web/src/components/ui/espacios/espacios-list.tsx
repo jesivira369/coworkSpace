@@ -3,10 +3,10 @@
 import Link from 'next/link'
 import { ArrowRight, Users } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '../button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../../ui/card'
 import { useToast } from '../../use-toast'
-import { useEspacios } from '@/lib/hooks/useEspacios'
+import { useEspacios } from '../../../lib/hooks/useEspacios'
 import { useEffect } from 'react'
 import { UbicacionLabelMap } from "../../../lib/enum/ubicacion.enum"
 
