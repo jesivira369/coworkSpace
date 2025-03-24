@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className="min-h-screen">
+    <html lang="es" className="min-h-screen" suppressHydrationWarning>
       <body className={inter.className + " min-h-screen bg-background text-foreground"}>
         <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
           <QueryProvider>
