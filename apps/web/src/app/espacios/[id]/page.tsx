@@ -2,10 +2,10 @@
 
 import Link from "next/link"
 import { useParams } from "next/navigation"
-import { Button } from "@/components/ui/button"
+import { Button } from "../../../components/ui/button"
 import { Skeleton } from "../../../components/skeleton"
 import { ArrowLeft } from "lucide-react"
-import { useEspacioById } from "@/lib/hooks/useEspacioById"
+import { useEspacioById } from "../../../lib/hooks/useEspacioById"
 
 export default function EspacioPage() {
     const { id } = useParams()

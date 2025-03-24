@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { PaginationButton } from "../pagination"
 import { useToast } from "../../use-toast"
-import { Calendar, Clock, Trash2 } from "lucide-react"
+import { Calendar, Clock, Pencil, Trash2 } from "lucide-react"
 import {
     AlertDialog,
     AlertDialogAction,
@@ -105,6 +105,14 @@ export default function ReservasList() {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-2">
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        onClick={() => router.push(`/reservas/${reserva.id}/editar`)}
+                                    >
+                                        <Pencil className="h-4 w-4 mr-2" />
+                                        Editar
+                                    </Button>
                                     <AlertDialog>
                                         <AlertDialogTrigger asChild>
                                             <Button variant="destructive" size="sm">
