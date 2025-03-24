@@ -3,7 +3,6 @@
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import {
     Select,
@@ -57,13 +56,13 @@ export default function NuevaReservaForm() {
     const onSubmit = async (values: CreateReservaInput) => {
         try {
             await createReserva(values)
-            toast({ title: "Reserva creada" })
+            toast({ title: "Reserva creada exitosamente" })
             router.push("/reservas")
-        } catch (error) {
+        } catch (error: any) {
             toast({
                 variant: "destructive",
                 title: "Error",
-                description: "No se pudo crear la reserva",
+                description: `Ocurrió un error al crear la reserva: ${error.response.data.message}`,
             })
         }
     }
