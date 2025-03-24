@@ -2,12 +2,12 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Button } from "../button"
+import { Card, CardContent } from "../card"
+import { Badge } from "../badge"
 import { PaginationButton } from "../pagination"
 import { useToast } from "../../use-toast"
-import { Calendar, Clock, Trash2, Mail } from "lucide-react"
+import { Calendar, Clock, Pencil, Trash2, Mail } from "lucide-react"
 import {
     AlertDialog,
     AlertDialogAction,
@@ -19,11 +19,11 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "../alert-dialog"
-import { useReservas } from "@/lib/hooks/useReservas"
-import { api } from "@/lib/api"
+import { useReservas } from "../../../lib/hooks/useReservas"
+import { api } from "../../../lib/api"
 import { UbicacionLabelMap } from "../../../lib/enum/ubicacion.enum"
 
-export default function ReservasList() {
+export default function ReservasList({ espacioId }: { espacioId?: number }) {
     const [currentPage, setCurrentPage] = useState(1)
     const { toast } = useToast()
     const router = useRouter()
@@ -33,7 +33,7 @@ export default function ReservasList() {
         isLoading,
         isError,
         refetch,
-    } = useReservas({ page: currentPage, limit: 10 })
+    } = useReservas({ page: currentPage, limit: 10, espacioId })
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page)
@@ -111,6 +111,14 @@ export default function ReservasList() {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-2">
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        onClick={() => router.push(`/reservas/${reserva.id}/editar`)}
+                                    >
+                                        <Pencil className="h-4 w-4 mr-2" />
+                                        Editar
+                                    </Button>
                                     <AlertDialog>
                                         <AlertDialogTrigger asChild>
                                             <Button variant="destructive" size="sm">

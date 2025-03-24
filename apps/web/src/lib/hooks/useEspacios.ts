@@ -1,4 +1,3 @@
-// web/src/lib/hooks/useEspacios.ts
 import { useQuery } from '@tanstack/react-query';
 import { api } from '../api';
 import { parseQueryParams } from '../query-params';

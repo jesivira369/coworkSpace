@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { Button } from "../../components/ui/button"
 import { Skeleton } from "../../components/skeleton"
 import ReservasList from "../../components/ui/reservas/reservas-list"
 import { Plus } from "lucide-react"

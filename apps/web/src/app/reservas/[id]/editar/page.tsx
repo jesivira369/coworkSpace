@@ -1,21 +1,30 @@
 import { Suspense } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Button } from "../../../components/ui/button"
-import { Skeleton } from "../../../components/skeleton"
-import NuevaReservaForm from "../../../components/ui/reservas/nueva-reserva-form"
+import { notFound } from "next/navigation"
+import { Button } from "../../../../components/ui/button"
+import { Skeleton } from "../../../../components/skeleton"
+import EditarReservaForm from "../../../../components/ui/reservas/editar-reserva-form"
 import { ArrowLeft } from "lucide-react"
 
-export const metadata: Metadata = {
-    title: "Nueva Reserva | CoworkSpace",
-    description: "Crea una nueva reserva para un espacio de trabajo",
+interface EditarReservaPageProps {
+    params: {
+        id: string
+    }
 }
 
-export default function NuevaReservaPage({
-    searchParams,
-}: {
-    searchParams: { espacioId?: string }
-}) {
+export const metadata: Metadata = {
+    title: "Editar Reserva | CoworkSpace",
+    description: "Edita los detalles de tu reserva",
+}
+
+export default function EditarReservaPage({ params }: EditarReservaPageProps) {
+    const { id } = params
+
+    if (!id) {
+        notFound()
+    }
+
     return (
         <div className="container mx-auto px-4 py-8">
             <div className="mb-6">
@@ -28,18 +37,18 @@ export default function NuevaReservaPage({
             </div>
 
             <div className="mb-8">
-                <h1 className="text-3xl font-bold mb-2">Nueva Reserva</h1>
-                <p className="text-muted-foreground">Completa el formulario para reservar un espacio de trabajo.</p>
+                <h1 className="text-3xl font-bold mb-2">Editar Reserva</h1>
+                <p className="text-muted-foreground">Modifica los detalles de tu reserva.</p>
             </div>
 
-            <Suspense fallback={<NuevaReservaFormSkeleton />}>
-                <NuevaReservaForm />
+            <Suspense fallback={<EditarReservaFormSkeleton />}>
+                <EditarReservaForm id={id} />
             </Suspense>
         </div>
     )
 }
 
-function NuevaReservaFormSkeleton() {
+function EditarReservaFormSkeleton() {
     return (
         <div className="max-w-2xl mx-auto">
             <div className="space-y-6">
