@@ -7,7 +7,7 @@ import { Card, CardContent } from "../card"
 import { Badge } from "../badge"
 import { PaginationButton } from "../pagination"
 import { useToast } from "../../use-toast"
-import { Calendar, Clock, Pencil, Trash2 } from "lucide-react"
+import { Calendar, Clock, Pencil, Trash2, Mail } from "lucide-react"
 import {
     AlertDialog,
     AlertDialogAction,
@@ -23,7 +23,7 @@ import { useReservas } from "../../../lib/hooks/useReservas"
 import { api } from "../../../lib/api"
 import { UbicacionLabelMap } from "../../../lib/enum/ubicacion.enum"
 
-export default function ReservasList() {
+export default function ReservasList({ espacioId }: { espacioId?: number }) {
     const [currentPage, setCurrentPage] = useState(1)
     const { toast } = useToast()
     const router = useRouter()
@@ -33,7 +33,7 @@ export default function ReservasList() {
         isLoading,
         isError,
         refetch,
-    } = useReservas({ page: currentPage, limit: 10 })
+    } = useReservas({ page: currentPage, limit: 10, espacioId })
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page)
@@ -100,6 +100,12 @@ export default function ReservasList() {
                                             <Clock className="h-4 w-4 mr-1" />
                                             <span>
                                                 {reserva.horaInicio} - {reserva.horaFin}
+                                            </span>
+                                        </div>
+                                        <div className="flex items-center">
+                                            <Mail className="h-4 w-4 mr-1" />
+                                            <span>
+                                                {reserva.emailCliente}
                                             </span>
                                         </div>
                                     </div>
