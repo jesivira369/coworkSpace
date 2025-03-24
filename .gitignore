@@ -57,4 +57,5 @@ out
 
 # Env
 .env
+.env.test
 .env.local

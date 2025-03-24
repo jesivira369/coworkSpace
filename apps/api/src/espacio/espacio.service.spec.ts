@@ -1,38 +1,52 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EspacioService } from './espacio.service';
-import { getRepositoryToken } from '@nestjs/typeorm';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { Espacio } from './entities/espacio.entity';
+import { EspacioService } from './espacio.service';
 
 describe('EspacioService', () => {
   let service: EspacioService;
+  let moduleRef: TestingModule;
 
-  // Mock mínimo requerido por TypeOrmCrudService
-  const mockRepo = {
-    find: jest.fn(),
-    findOne: jest.fn(),
-    save: jest.fn(),
-    // propiedades mínimas necesarias para TypeOrmCrudService
-    metadata: { columns: [], relations: [] },
-    manager: { transaction: jest.fn() },
-    target: {},
-    createQueryBuilder: jest.fn(),
-  };
-
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      providers: [
-        EspacioService,
-        {
-          provide: getRepositoryToken(Espacio),
-          useValue: mockRepo,
-        },
+  beforeAll(async () => {
+    moduleRef = await Test.createTestingModule({
+      imports: [
+        TypeOrmModule.forRoot({
+          type: 'mysql',
+          host: process.env.DB_HOST,
+          port: Number(process.env.DB_PORT),
+          username: process.env.DB_USER,
+          password: process.env.DB_PASSWORD,
+          database: process.env.DB_NAME,
+          entities: [Espacio],
+          dropSchema: true,
+          logging: false,
+        }),
+        TypeOrmModule.forFeature([Espacio]),
       ],
+      providers: [EspacioService],
     }).compile();
 
-    service = module.get<EspacioService>(EspacioService);
+    service = moduleRef.get(EspacioService);
+  });
+
+  afterAll(async () => {
+    await moduleRef.close();
   });
 
   it('should be defined', () => {
     expect(service).toBeDefined();
+  });
+
+  it('should create a new espacio', async () => {
+    const dto = {
+      nombre: 'Oficina Compartida',
+      capacidad: 10,
+      descripcion: 'Oficina compartida para 10 personas',
+      ubicacion: 'PB',
+    };
+
+    const espacio = await service['repo'].save(dto);
+    expect(espacio.id).toBeDefined();
+    expect(espacio.nombre).toBe('Oficina Compartida');
   });
 });
