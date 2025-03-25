@@ -27,6 +27,13 @@ import {
       'deleteOneBase',
     ],
   },
+  query: {
+    join: {
+      espacio: {
+        eager: true,
+      },
+    },
+  },
 })
 @Controller('reservas')
 export class ReservaController implements CrudController<Reserva> {
