@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "7395054e-2d90-453e-a5b8-56a9802b7bbe",
+		"name": "Reservas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19282020"
+	},
+	"item": [
+		{
+			"name": "Espacios",
+			"item": [
+				{
+					"name": "Crear Espacio",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "12345678",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Sala de reuniones\",\r\n  \"ubicacion\": \"PISO_1\",\r\n  \"capacidad\": 20,\r\n  \"descripcion\": \"Espacio para reuniones privadas pequeñas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}{{puerto\n}}/api/espacios",
+							"host": [
+								"{{server}}{{puerto\n}}"
+							],
+							"path": [
+								"api",
+								"espacios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Espacios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "12345678",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}{{puerto\n}}/api/espacios",
+							"host": [
+								"{{server}}{{puerto\n}}"
+							],
+							"path": [
+								"api",
+								"espacios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Espacio",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "12345678",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}{{puerto\n}}/api/espacios/:id",
+							"host": [
+								"{{server}}{{puerto\n}}"
+							],
+							"path": [
+								"api",
+								"espacios",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Espacio",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "12345678",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}{{puerto\n}}/api/espacios/:id",
+							"host": [
+								"{{server}}{{puerto\n}}"
+							],
+							"path": [
+								"api",
+								"espacios",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservas",
+			"item": [
+				{
+					"name": "Crear Reserva",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "12345678",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"emailCliente\": \"prueba@correo.com\",\r\n  \"espacioId\": 4,\r\n  \"fechaReserva\": \"2025-04-29\",\r\n  \"horaInicio\": \"18:30\",\r\n  \"horaFin\": \"20:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}{{puerto\n}}/api/reservas",
+							"host": [
+								"{{server}}{{puerto\n}}"
+							],
+							"path": [
+								"api",
+								"reservas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reservas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "12345678",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}{{puerto\n}}/api/reservas?page=1&limit=3&sort=id,DESC",
+							"host": [
+								"{{server}}{{puerto\n}}"
+							],
+							"path": [
+								"api",
+								"reservas"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "3"
+								},
+								{
+									"key": "sort",
+									"value": "id,DESC"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
