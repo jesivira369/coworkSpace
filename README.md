@@ -86,7 +86,7 @@ Frontend tiene pruebas E2E con Playwright + MSW mock server.
 ## ▶️ Cómo usar la colección:
 Abre Postman.
 
-Importa la colección Coworkspace.postman_collection.json.
+Importa la colección Coworkspace.postman_collection.json, incluida en este repositorio en la carpeta postman.
 
 Configura las variables de entorno:
 
