@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Espacio } from './entities/espacio.entity';
 import { EspacioService } from './espacio.service';
+import { Reserva } from '../reserva/entities/reserva.entity';
 
 describe('EspacioService', () => {
   let service: EspacioService;
@@ -17,7 +18,8 @@ describe('EspacioService', () => {
           username: process.env.DB_USER,
           password: process.env.DB_PASSWORD,
           database: process.env.DB_NAME,
-          entities: [Espacio],
+          entities: [Espacio, Reserva],
+          synchronize: true,
           dropSchema: true,
           logging: false,
         }),
