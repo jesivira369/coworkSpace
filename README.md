@@ -13,12 +13,14 @@
 
 ```bash
 cp .env.example .env
+```
 
 
 ## ## Instala las dependencias del monorepo:
 
 ```sh
 yarn install
+```
 
 
 ## Levanta la base de datos MySQL usando Docker:
